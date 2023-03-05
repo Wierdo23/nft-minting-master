@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+  
+  <button onclick ="connect()"> login</button> 
+
+   <script type="text/javascript">
+    let account =null;
+    let accessToken =null;
+    const connect = async () =>{
+        if(window.ethereum){
+            await window.ethereum.send('eth_requestAccounts')
+            window.w3 = new Web3(window.ethereum)
+            var accounts = await w3.eth.getAccounts()
+            account = account[0];
+
+            await authenticate()
+        }
+
+    }
+    const authenticate =async () => {
+        let res = await fetch(`/nounce?address=${account}`)
+        let resBody = await res.json()
+        console.log(resBody)
+    }
+   </script>
+
+</body>
+
+</html>

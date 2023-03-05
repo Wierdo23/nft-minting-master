@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,100&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,100&display=swap" rel="stylesheet">
+
+<link href="wallet.js" rel="script">
+</head>
+<body>
+
+    <script type="text/javascript">
+        let account =null;
+        let accessToken =null;
+        const connect = async () =>{
+            if(window.ethereum){
+                await window.ethereum.send('eth_requestAccounts')
+                window.w3 = new Web3(window.ethereum)
+                var accounts = await w3.eth.getAccounts()
+                account = account[0];
+    
+                await authenticate()
+            }
+    
+        }
+        const authenticate =async () => {
+            let res = await fetch(`/nounce?address=${account}`)
+            let resBody = await res.json()
+            console.log(resBody)
+        }
+       </script>
+
+        <nav>
+            <div class="navbar">
+            <div class="menu">
+                <img src="./img/Logo.png" alt="">
+                <img src="img/home.svg" alt="">
+                <img src="./img/clipboard.svg" alt="">
+                <img src="./img/heart.svg" alt="">
+                <img src="./img/settings.svg" alt="">
+                <!-- <img src="./img/Vector-2.png" alt=""> -->
+                <img src="./img/star.svg" alt="">
+            </div>
+
+            <div class="search-ac">
+                <div class="searchbar">
+                    <img src="./img/search.svg" >
+                    <input type="text" placeholder="Search Here">
+                </div>
+                
+                <div class="noti-mode">
+                    <img src="./img/wallet.svg" onclick="connect()">
+                    <img src="./img/sun.svg" alt="">
+                    <img src="./img/bell.svg" alt="">
+                </div>
+                <div class="myacc">
+                    <img src="img/profile.svg" alt="">
+                </div>
+
+            </div>
+            </div>
+            
+        </nav>
+        <div class="collection-name">
+            <div class="cname">
+            Liquid Wave
+            </div>
+            <div class="three">
+                <div class="all">
+                    All
+                </div>
+                <div class="artwork">
+                    Artwork
+                </div>
+                <div class="book">
+                    Book
+                </div>
+            </div>
+
+        </div>  
+
+
+    <div class="container">
+        <div class="grid">
+            <div class="1">
+            <div class="cardmain">            
+                <div class="content">
+                        <div class="image">
+                            <img src="./img/NFT.png" alt="">
+                            <div class="name" >
+                                Liquid Wave
+                            </div>
+                            <div class="price">
+                                0.05 ETH
+                            </div>
+                            <div class="ownedby">
+                                owned by        
+                                <div id="name">
+                                    Fatma
+                                </div>
+                            </div>
+                            <div class="buy">
+                                Buy
+                            </div>
+                        </div>    
+                </div>  
+            </div>
+            </div>
+            <div class="2">
+            <div class="cardmain">            
+                <div class="content">
+                        <div class="image">
+                            <img src="./img/NFT.png" alt="">
+                            <div class="name" >
+                                Liquid Wave
+                            </div>
+                            <div class="price">
+                                0.05 ETH
+                            </div>
+                            <div class="ownedby">
+                                owned by        
+                                <div id="name">
+                                    Fatma
+                                </div>
+                            </div>
+                            <div class="buy">
+                                Buy
+                            </div>
+                        </div>    
+                </div>  
+            </div>
+            </div>            
+        </div>
+    </div>
+    
+
+
+        
+
+
+
+    
+</body>
+</html>
